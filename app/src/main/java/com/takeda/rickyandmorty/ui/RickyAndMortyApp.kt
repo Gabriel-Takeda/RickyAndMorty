@@ -17,6 +17,7 @@ import com.takeda.rickyandmorty.ui.components.TopBar
 @Composable
 fun RickyAndMortyApp() {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val rickyAndMortyViewModel: RickyAndMortyViewModel = viewModel()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = { TopBar(scrollBehavior = scrollBehavior) }
@@ -24,7 +25,6 @@ fun RickyAndMortyApp() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            val rickyAndMortyViewModel: RickyAndMortyViewModel = viewModel()
             HomeScreen(
                 contentPaddingValues = it,
                 rickyAndMortyUiState = rickyAndMortyViewModel.rickyAndMortyUiState,
